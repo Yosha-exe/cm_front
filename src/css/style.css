@@ -1,0 +1,102 @@
+html {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    padding: 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+.container {
+    width: 90%;
+    padding: 0 12px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: beige;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    width: 120px;
+    height: 40px;
+    color: white;
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.login__button, .team__button, .goals__button {
+    width: 80px;
+    height: 40px;
+    color: white;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.board {
+    background: blue;
+}
+
+.board-header {
+    display: grid;
+    align-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    height: 60px;
+}
+
+.board-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: orangered;
+    color: white;
+}
+
+.board-main {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    height: 800px;
+    background-color: aquamarine;
+
+}
+
+.board-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightcoral;
+    color: white;
+}

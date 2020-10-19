@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kanban board</title>
 
+
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css"/>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -15,14 +18,62 @@
 
 </head>
 <body>
-    <header>
+<header>
+    <div class="header container">
+        <div class="header-logo">
+            Canban board
+        </div>
+        <nav class="header-menu">
+            <button type="button" class="team__button">
+                Team
+            </button>
+            <button type="button" class="goals__button">
+                Goals
+            </button>
+            <button type="button" class="login__button">
+                Login
+            </button>
+        </nav>
 
-    </header>
-    <main>
-
-    </main>
-    <footer>
-
-    </footer>
+    </div>
+</header>
+<main>
+    <div class="board container">
+        <div class="board-header">
+            <div class="tasks-heading board-heading">
+                tasks-heading
+            </div>
+            <div class="develop-heading board-heading">
+                develop-heading
+            </div>
+            <div class="testing-heading board-heading">
+                testing-heading
+            </div>
+            <div class="discussion-heading board-heading">
+                discussion-heading
+            </div>
+            <div class="completed-heading board-heading">
+                completed-heading
+            </div>
+        </div>
+        <div class="board-main">
+            <section class="tasks-section board-section">
+                tasks-section
+            </section>
+            <section class="develop-section board-section">
+                develop-section
+            </section>
+            <section class="testing-section board-section">
+                testing-section
+            </section>
+            <section class="discussion-section board-section">
+                discussion-section
+            </section>
+            <section class="completed-section board-section">
+                completed-section
+            </section>
+        </div>
+    </div>
+</main>
 </body>
 </html>
