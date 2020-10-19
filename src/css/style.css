@@ -1,4 +1,5 @@
 html {
+    font-size: 16px;
     font-family: Roboto, sans-serif;
     font-weight: 500;
 }
@@ -11,6 +12,7 @@ body {
 }
 
 button {
+    font-size: 16px;
     font-family: Roboto, sans-serif;
     font-weight: 500;
     padding: 0;
@@ -82,6 +84,7 @@ button {
     height: 40px;
     background-color: orangered;
     color: white;
+    border-radius: 4px;
 }
 
 .board-main {
