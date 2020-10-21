@@ -23,7 +23,7 @@ button {
 }
 
 .container {
-    width: 90%;
+    width: 1140px;
     padding: 0 12px;
     margin: 0 auto;
 }
@@ -34,7 +34,7 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: beige;
+    background-color: #ccc;
 }
 
 .header-logo {
@@ -66,40 +66,64 @@ button {
 }
 
 .board {
-    background: blue;
-}
-
-.board-header {
     display: grid;
-    align-items: center;
-    gap: 10px;
-    grid-template-columns: repeat(5, 1fr);
-    height: 60px;
-}
-
-.board-heading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    background-color: orangered;
-    color: white;
-    border-radius: 4px;
-}
-
-.board-main {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(5, 1fr);
-    height: 800px;
-    background-color: aquamarine;
-
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    background: #f3f3f3;
 }
 
 .board-section {
+    display: grid;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.board-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: orangered;
+    color: white;
+    padding: 0 12px;
+    border-radius: 4px;
+}
+
+.task-add__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 22px;
+    min-height: 22px;
+    max-height: 22px;
+    min-width: 22px;
+    max-width: 22px;
+    background-color: inherit;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    outline: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.plus {
+    color: #fff;
+    width: 12px;
+    height: 12px;
+}
+
+.plus svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.board-main {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: lightcoral;
+    height: 100vh;
     color: white;
+    border-radius: 4px;
 }

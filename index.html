@@ -15,7 +15,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-
 </head>
 <body>
 <header>
@@ -39,40 +38,66 @@
 </header>
 <main>
     <div class="board container" id="app">
-        <div class="board-header">
-            <div class="tasks-heading board-heading">
-                tasks-heading
+        <section class="tasks-section board-section">
+            <div class="board-header">
+                Tasks
+                <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                </button>
             </div>
-            <div class="develop-heading board-heading">
-                develop-heading
+            <div class="board-main">
+                tasks-main
             </div>
-            <div class="testing-heading board-heading">
-                testing-heading
+        </section>
+        <section class="developing-section board-section">
+            <div class="board-header">
+                Developing
+                <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                </button>
             </div>
-            <div class="discussion-heading board-heading">
-                discussion-heading
+            <div class="board-main">
+                Developing-main
             </div>
-            <div class="completed-heading board-heading">
-                completed-heading
+        </section>
+        <section class="testing-section board-section">
+            <div class="board-header">
+                Testing
+                <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                </button>
             </div>
-        </div>
-        <div class="board-main">
-            <section class="tasks-section board-section">
-                tasks-section
-            </section>
-            <section class="develop-section board-section">
-                develop-section
-            </section>
-            <section class="testing-section board-section">
-                testing-section
-            </section>
-            <section class="discussion-section board-section">
-                discussion-section
-            </section>
-            <section class="completed-section board-section">
-                completed-section
-            </section>
-        </div>
+            <div class="board-main">
+                Testing-main
+            </div>
+        </section>
+        <section class="Completed-section board-section">
+            <div class="board-header">
+                Completed
+                <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                </button>
+            </div>
+            <div class="board-main">
+                Completed-main
+            </div>
+        </section>
     </div>
 </main>
 <script src="src/js/script.js"></script>
