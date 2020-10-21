@@ -11,13 +11,26 @@ body {
     padding: 0;
 }
 
+:root {
+    --dark-blue: #200772;
+    --light-blue: #876ED7;
+    --main-yellow: #FFF100;
+    --main-orange: #FFB700;
+    --main-black: #333;
+    --main-white: #fff;
+    --light-gray: #f1f1f1;
+    --main-green: #5DE100;
+    --light-green: #87F03C;
+    --bg-color: #edeef0;
+    --component-bg-color: #cef0e2;
+}
+
 button {
     font-size: 16px;
     font-family: Roboto, sans-serif;
     font-weight: 500;
     padding: 0;
     outline: none;
-    border: none;
     cursor: pointer;
 
 }
@@ -29,12 +42,12 @@ button {
 }
 
 .header {
-    height: 50px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #ccc;
+    background-color: var(--bg-color);
 }
 
 .header-logo {
@@ -44,9 +57,8 @@ button {
     font-weight: 500;
     width: 120px;
     height: 40px;
-    color: white;
-    background-color: #ccc;
-    border-radius: 4px;
+    background-color: transparent;
+    color: var(--main-black);
 }
 
 .header-menu {
@@ -54,27 +66,31 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    width: 260px;
 }
 
-.login__button, .team__button, .goals__button {
+.menu__button {
     width: 80px;
-    height: 40px;
-    color: white;
-    background-color: #333;
-    border-radius: 4px;
+    height: 34px;
+    color: #3ba67a;
+    background-color: var(--main-white);
+    border: 1px solid var(--main-green);
+    border-radius: 30px;
+}
+
+.menu__button:hover {
+    color: var(--main-white);
+    background-color: var(--main-green);
 }
 
 .board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    background: #f3f3f3;
+    background: var(--bg-color);
 }
 
 .board-section {
-    display: grid;
-    gap: 12px;
     padding: 12px 0;
 }
 
@@ -82,11 +98,10 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
-    background-color: orangered;
+    height: 40px;
+    background-color: var(--main-green);
     color: white;
     padding: 0 12px;
-    border-radius: 4px;
 }
 
 .task-add__btn {
@@ -122,8 +137,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightcoral;
-    height: 100vh;
-    color: white;
-    border-radius: 4px;
+    background-color: var(--main-white);
+    min-height: 100vh;
+    padding: 12px;
+    color: var(--light-blue);
 }
+

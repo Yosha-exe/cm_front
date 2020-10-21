@@ -5,31 +5,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Kanban board</title>
 
-
-    <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css"/>
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 <header>
     <div class="header container">
         <div class="header-logo">
-            Canban board
+            Kanban board
         </div>
         <nav class="header-menu">
-            <button type="button" class="team__button">
+            <button type="button" class="menu__button team__button">
                 Team
             </button>
-            <button type="button" class="goals__button">
+            <button type="button" class="menu__button goals__button">
                 Goals
             </button>
-            <button type="button" class="login__button">
+            <button type="button" class="menu__button login__button">
                 Login
             </button>
         </nav>
@@ -50,7 +48,9 @@
                 </button>
             </div>
             <div class="board-main">
-                tasks-main
+                <div class="task-component">
+
+                </div>
             </div>
         </section>
         <section class="developing-section board-section">
