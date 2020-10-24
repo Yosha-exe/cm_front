@@ -13,16 +13,17 @@ body {
 
 :root {
     --dark-blue: #200772;
-    --light-blue: #876ED7;
+    --light-blue: #644aa0;
     --main-yellow: #FFF100;
     --main-orange: #FFB700;
     --main-black: #333;
     --main-white: #fff;
     --light-gray: #f1f1f1;
-    --main-green: #5DE100;
+    --main-green: #4db803;
     --light-green: #87F03C;
     --bg-color: #edeef0;
-    --component-bg-color: #cef0e2;
+    --component-bg-color: #acefe0;
+    --menu-green: #3ba67a;
 }
 
 button {
@@ -36,7 +37,7 @@ button {
 }
 
 .container {
-    width: 1140px;
+    width: 1200px;
     padding: 0 12px;
     margin: 0 auto;
 }
@@ -57,8 +58,8 @@ button {
     font-weight: 500;
     width: 120px;
     height: 40px;
-    background-color: transparent;
-    color: var(--main-black);
+    font-size: 20px;
+    color: var(--main-green);
 }
 
 .header-menu {
@@ -72,7 +73,7 @@ button {
 .menu__button {
     width: 80px;
     height: 34px;
-    color: #3ba67a;
+    color: var(--menu-green);
     background-color: var(--main-white);
     border: 1px solid var(--main-green);
     border-radius: 30px;
@@ -88,6 +89,7 @@ button {
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
     background: var(--bg-color);
+    overflow: hidden;
 }
 
 .board-section {
@@ -120,10 +122,11 @@ button {
     outline: none;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+    color: var(--main-white);
 }
 
 .plus {
-    color: #fff;
+
     width: 12px;
     height: 12px;
 }
@@ -135,11 +138,58 @@ button {
 
 .board-main {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     background-color: var(--main-white);
-    min-height: 100vh;
+    height: 76vh;
     padding: 12px;
+    overflow: auto;
     color: var(--light-blue);
 }
 
+.board-main::-webkit-scrollbar {
+    width: 10px;
+}
+
+.board-main::-webkit-scrollbar-track {
+    background: var(--main-white);
+}
+
+/* Handle */
+.board-main::-webkit-scrollbar-thumb {
+    background: lightblue;
+}
+
+.task-component {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    padding: 12px;
+    background-color: var(--component-bg-color);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.task-component__header {
+    min-height: 20px;
+}
+
+.task-component__main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 60px;
+}
+
+.component-avatar {
+    margin-right: 10px;
+}
+
+.component-deadline {
+    flex: 1 1 auto;
+}
+
+.component-comments__btn {
+    border: none;
+    background: transparent;
+}
