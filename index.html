@@ -15,104 +15,127 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<header>
-    <div class="header container">
-        <div class="header-logo">
-            Project title
+<div id="app">
+    <header>
+        <div class="header container">
+            <div class="header-logo">
+                Project title
+            </div>
+            <nav class="header-menu">
+                <button type="button" class="menu__button team__button"
+                        v-on:click="(menuTeam = true) && (menuGoals = false)"
+                        v-bind:class="{menu__buttonActive: menuTeam}">
+                    Team
+                </button>
+                <button type="button" class="menu__button goals__button"
+                        v-on:click="(menuGoals = true) && (menuTeam = false)"
+                        v-bind:class="{menu__buttonActive: menuGoals}">
+                    Goals
+                </button>
+                <button type="button" class="menu__button login__button">
+                    Login
+                </button>
+            </nav>
         </div>
-        <nav class="header-menu">
-            <button type="button" class="menu__button team__button">
-                Team
-            </button>
-            <button type="button" class="menu__button goals__button">
-                Goals
-            </button>
-            <button type="button" class="menu__button login__button">
-                Login
-            </button>
-        </nav>
+    </header>
 
-    </div>
-</header>
-<main>
-    <div class="board container" id="app">
+    <section class="team-section container" v-bind:class="{teamSectionActive: menuTeam}">
+        <div class="team-section__main">
+            <div class="member__block">
+                <img src="https://via.placeholder.com/40.png?text=Img" alt="avatar" class="member-avatar">
+                <div class="member-name">Employee name</div>
+            </div>
 
-        <section class="tasks-section board-section">
-            <div class="board-header">
-                Tasks
-                <button class="task-add__btn">
-                    <span class="plus">
-                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
-                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
-                                d="m83 0h34.1v200h-34.1z"/></g></svg>
-                    </span>
-                </button>
-            </div>
-            <div class="board-main">
-                <task-component></task-component>
-            </div>
-        </section>
-        <section class="developing-section board-section">
-            <div class="board-header">
-                Developing
-                <button class="task-add__btn">
-                    <span class="plus">
-                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
-                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
-                                d="m83 0h34.1v200h-34.1z"/></g></svg>
-                    </span>
-                </button>
-            </div>
-            <div class="board-main">
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-            </div>
-        </section>
-        <section class="testing-section board-section">
-            <div class="board-header">
-                Testing
-                <button class="task-add__btn">
-                    <span class="plus">
-                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
-                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
-                                d="m83 0h34.1v200h-34.1z"/></g></svg>
-                    </span>
-                </button>
-            </div>
-            <div class="board-main">
-                <task-component></task-component>
+        </div>
+    </section>
 
-            </div>
-        </section>
-        <section class="Completed-section board-section">
-            <div class="board-header">
-                Completed
-                <button class="task-add__btn">
+    <section class="goals-section container" v-bind:class="{goalsSectionActive: menuGoals}">
+        <div class="goals-section__main">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi atque ipsa, molestiae officia quae
+            temporibus tenetur! Atque consequuntur expedita fugit inventore iusto magnam molestias neque quibusdam,
+            repudiandae, tempora temporibus!
+        </div>
+    </section>
+
+    <main>
+        <div class="board container">
+            <section class="tasks-section board-section">
+                <div class="board-header">
+                    Tasks
+                    <button class="task-add__btn">
                     <span class="plus">
                         <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
                                 d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
                                 d="m83 0h34.1v200h-34.1z"/></g></svg>
                     </span>
-                </button>
-            </div>
-            <div class="board-main">
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-                <task-component></task-component>
-            </div>
-        </section>
-    </div>
-</main>
+                    </button>
+                </div>
+                <div class="board-main">
+                    <task-component></task-component>
+                </div>
+            </section>
+            <section class="developing-section board-section">
+                <div class="board-header">
+                    Developing
+                    <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                    </button>
+                </div>
+                <div class="board-main">
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                </div>
+            </section>
+            <section class="testing-section board-section">
+                <div class="board-header">
+                    Testing
+                    <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                    </button>
+                </div>
+                <div class="board-main">
+                    <task-component></task-component>
+                    <task-component></task-component>
+                </div>
+            </section>
+            <section class="Completed-section board-section">
+                <div class="board-header">
+                    Completed
+                    <button class="task-add__btn">
+                    <span class="plus">
+                        <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
+                                d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
+                                d="m83 0h34.1v200h-34.1z"/></g></svg>
+                    </span>
+                    </button>
+                </div>
+                <div class="board-main">
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
 <script src="src/js/script.js"></script>
 </body>
 </html>

@@ -19,11 +19,11 @@ body {
     --main-black: #333;
     --main-white: #fff;
     --light-gray: #f1f1f1;
-    --main-green: #4db803;
     --light-green: #87F03C;
     --bg-color: #edeef0;
     --component-bg-color: #acefe0;
-    --menu-green: #3ba67a;
+    --main-green: #3ba67a;
+    --track-color: #ADD8E6;
 }
 
 button {
@@ -73,15 +73,60 @@ button {
 .menu__button {
     width: 80px;
     height: 34px;
-    color: var(--menu-green);
+    color: var(--main-green);
     background-color: var(--main-white);
     border: 1px solid var(--main-green);
-    border-radius: 30px;
+    border-radius: 4px;
+}
+
+.menu__buttonActive {
+    color: var(--main-white);
+    background-color: var(--main-green);
 }
 
 .menu__button:hover {
     color: var(--main-white);
     background-color: var(--main-green);
+}
+
+.team-section, .goals-section {
+    display: none;
+    min-height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: var(--light-gray);
+}
+
+.teamSectionActive, .goalsSectionActive {
+    display: block;
+}
+
+.team-section__main, .goals-section__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px;
+    min-height: 40px;
+    color: var(--light-blue);
+    background: var(--main-white);
+}
+
+.member__block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.member-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.member-name {
+
 }
 
 .board {
@@ -143,7 +188,6 @@ button {
     height: 76vh;
     padding: 12px;
     overflow: auto;
-    color: var(--light-blue);
 }
 
 .board-main::-webkit-scrollbar {
@@ -154,12 +198,11 @@ button {
     background: var(--main-white);
 }
 
-/* Handle */
 .board-main::-webkit-scrollbar-thumb {
-    background: lightblue;
+    background: var(--track-color);
 }
 
-.task-component {
+.task {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -170,26 +213,45 @@ button {
     margin-bottom: 12px;
 }
 
-.task-component__header {
-    min-height: 20px;
+.task-header {
+    min-height: 30px;
+    color: var(--light-blue);
 }
 
-.task-component__main {
+.task-team {
     display: flex;
     flex-direction: row;
     align-items: center;
-    min-height: 60px;
+    flex-wrap: wrap;
+    min-height: 40px;
+    flex-shrink: 0;
 }
 
-.component-avatar {
-    margin-right: 10px;
+.task-avatar {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
-.component-deadline {
+.task-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 30px;
+}
+
+.task-deadline {
     flex: 1 1 auto;
+    color: var(--light-blue);
 }
 
-.component-comments__btn {
+.task-comments__button {
     border: none;
     background: transparent;
+    height: 30px;
+    width: 30px;
+}
+
+.task-status {
+    color: var(--light-blue);
 }

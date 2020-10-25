@@ -2,3 +2,4 @@
 package-lock.json
 db.json
 node_modules
+debug.log

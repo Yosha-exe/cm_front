@@ -1,23 +1,21 @@
-
-
-// Vue.component('exampleComponent', require('./components/ExampleComponent.vue'));
-
 var taskComponent = Vue.component('task-component', {
-    template: '<div class="task-component">' +
-        '                    <div class="task-component__header">\n' +
-        '                        Task title\n' +
+    template: '<div class="task">' +
+        '                    <div class="task-header">\n' +
+        '                        Task title Lorem ipsum dolor sit amet\n' +
         '                    </div>\n' +
-        '                    <div class="task-component__main">\n' +
-        '                        <img src="https://via.placeholder.com/30.png?text=F" alt="avatar" class="component-avatar">\n' +
-        '                        <div class="component-deadline">\n' +
+        '                    <div class="task-team">\n' +
+        '                         <img src="https://via.placeholder.com/30.png?text=Img" alt="avatar" class="task-avatar">\n' +
+        '                    </div>\n' +
+        '                    <div class="task-main">\n' +
+        '                        <div class="task-deadline">\n' +
         '                            Month 31\n' +
         '                        </div>\n' +
-        '                        <button class="component-comments__btn">\n' +
+        '                        <button class="task-comments__button">\n' +
         '                            <img alt="comments" src="./src/img/comment-icon.png" width="30" height="30"/>\n' +
         '                        </button>\n' +
         '                    </div>\n' +
-        '                    <div class="task-component__footer">\n' +
-        '                        <span class="component-status">\n' +
+        '                    <div class="task-footer">\n' +
+        '                        <span class="task-status">\n' +
         '                            Priority value\n' +
         '                        </span>\n' +
         '                    </div>\n' +
@@ -26,13 +24,20 @@ var taskComponent = Vue.component('task-component', {
 
 var App = new Vue({
     el: '#app',
-    data: function (){
+    data: function () {
         return {
+            menuTeam: false,
+            menuGoals: false,
             tasks: [
-                { title: 'New button design' },
-                { title: 'Add filters in market' },
-                { title: 'Create new component for admin panel' }
+                {title: 'New button design'},
+                {title: 'Add filters in market'},
+                {title: 'Create new component for admin panel'}
             ]
+        }
+    },
+    methods: {
+        menuToggle: function () {
+            
         }
     }
 })
