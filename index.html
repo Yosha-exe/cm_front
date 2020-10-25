@@ -23,37 +23,48 @@
             </div>
             <nav class="header-menu">
                 <button type="button" class="menu__button team__button"
-                        v-on:click="(menuTeam = true) && (menuGoals = false)"
+                        v-on:click="teamToggle"
                         v-bind:class="{menu__buttonActive: menuTeam}">
                     Team
                 </button>
                 <button type="button" class="menu__button goals__button"
-                        v-on:click="(menuGoals = true) && (menuTeam = false)"
+                        v-on:click="goalsToggle"
                         v-bind:class="{menu__buttonActive: menuGoals}">
                     Goals
                 </button>
-                <button type="button" class="menu__button login__button">
+                <button type="button" class="menu__button login__button"
+                        v-on:click="loginToggle"
+                        v-bind:class="{menu__buttonActive: menuLogin}">
                     Login
+                </button>
+                <button v-if="logoutStatus" type="button" class="menu__button logout__button">
+                    Logout
                 </button>
             </nav>
         </div>
     </header>
 
-    <section class="team-section container" v-bind:class="{teamSectionActive: menuTeam}">
-        <div class="team-section__main">
+    <section class="team-section container" v-bind:class="{sectionActive: menuTeam}">
+        <div class="team-section__main section-main">
             <div class="member__block">
-                <img src="https://via.placeholder.com/40.png?text=Img" alt="avatar" class="member-avatar">
+                <img src="https://via.placeholder.com/30.png?text=Img" alt="avatar" class="member-avatar">
                 <div class="member-name">Employee name</div>
             </div>
 
         </div>
     </section>
 
-    <section class="goals-section container" v-bind:class="{goalsSectionActive: menuGoals}">
-        <div class="goals-section__main">
+    <section class="goals-section container" v-bind:class="{sectionActive: menuGoals}">
+        <div class="goals-section__main section-main">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi atque ipsa, molestiae officia quae
             temporibus tenetur! Atque consequuntur expedita fugit inventore iusto magnam molestias neque quibusdam,
             repudiandae, tempora temporibus!
+        </div>
+    </section>
+
+    <section class="login-section container" v-bind:class="{sectionActive: menuLogin}">
+        <div class="login-section__main section-main">
+
         </div>
     </section>
 

@@ -28,6 +28,8 @@ var App = new Vue({
         return {
             menuTeam: false,
             menuGoals: false,
+            menuLogin: false,
+            logoutStatus: false,
             tasks: [
                 {title: 'New button design'},
                 {title: 'Add filters in market'},
@@ -36,8 +38,32 @@ var App = new Vue({
         }
     },
     methods: {
-        menuToggle: function () {
-            
+        teamToggle: function () {
+            if (this.menuTeam) {
+                this.menuTeam = !this.menuTeam;
+            } else {
+                this.menuTeam = !this.menuTeam;
+                this.menuGoals = false;
+                this.menuLogin = false;
+            }
+        },
+        goalsToggle: function () {
+            if (this.menuGoals) {
+                this.menuGoals = !this.menuGoals;
+            } else {
+                this.menuGoals = !this.menuGoals;
+                this.menuTeam = false;
+                this.menuLogin = false;
+            }
+        },
+        loginToggle: function () {
+            if (this.menuLogin) {
+                this.menuLogin = !this.menuLogin;
+            } else {
+                this.menuLogin = !this.menuLogin;
+                this.menuTeam = false;
+                this.menuGoals = false;
+            }
         }
     }
 })

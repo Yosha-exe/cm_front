@@ -16,6 +16,7 @@ body {
     --light-blue: #644aa0;
     --main-yellow: #FFF100;
     --main-orange: #FFB700;
+    --main-red: #cc4e47;
     --main-black: #333;
     --main-white: #fff;
     --light-gray: #f1f1f1;
@@ -89,7 +90,17 @@ button {
     background-color: var(--main-green);
 }
 
-.team-section, .goals-section {
+.logout__button {
+    color: var(--main-red);
+    border-color: var(--main-red);
+}
+
+.logout__button:hover {
+    color: var(--main-white);
+    background-color: var(--main-red);
+}
+
+.team-section, .goals-section, .login-section {
     display: none;
     min-height: 50px;
     padding-top: 5px;
@@ -97,11 +108,11 @@ button {
     background: var(--light-gray);
 }
 
-.teamSectionActive, .goalsSectionActive {
+.sectionActive {
     display: block;
 }
 
-.team-section__main, .goals-section__main {
+.section-main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -117,16 +128,19 @@ button {
     flex-direction: row;
     align-items: center;
     gap: 6px;
+    padding: 6px;
+    background: var(--main-green);
+    border-radius: 4px;
 }
 
 .member-avatar {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 4px;
 }
 
 .member-name {
-
+    color: var(--main-white);
 }
 
 .board {
