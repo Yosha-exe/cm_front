@@ -1,3 +1,13 @@
+// sectionToggle: function(currentParameter, secondParameter, thirdParameter) {
+//     if (this.currentParameter) {
+//         this.currentParameter = !this.currentParameter;
+//     } else {
+//         this.currentParameter = !this.currentParameter;
+//         this.secondParameter = false;
+//         this.thirdParameter = false;
+//     }
+// }
+
 var taskComponent = Vue.component('task-component', {
     template: '<div class="task">' +
         '                    <div class="task-header">\n' +
@@ -10,11 +20,11 @@ var taskComponent = Vue.component('task-component', {
         '                        <div class="task-deadline">\n' +
         '                            Month 31\n' +
         '                        </div>\n' +
-        '                        <button class="task-comments__button">\n' +
+        '                        <button type="button" class="task-comments__button">\n' +
         '                            <img alt="comments" src="./src/img/comment-icon.png" width="30" height="30"/>\n' +
         '                        </button>\n' +
         '                    </div>\n' +
-        '                    <div class="task-footer">\n' +
+        '                        <div class="task-comments"></div>\n' +
         '                        <span class="task-status">\n' +
         '                            Priority value\n' +
         '                        </span>\n' +
@@ -30,6 +40,7 @@ var App = new Vue({
             menuGoals: false,
             menuLogin: false,
             logoutStatus: false,
+            commentsStatus: true,
             tasks: [
                 {title: 'New button design'},
                 {title: 'Add filters in market'},
@@ -37,6 +48,7 @@ var App = new Vue({
             ]
         }
     },
+
     methods: {
         teamToggle: function () {
             if (this.menuTeam) {
@@ -63,6 +75,13 @@ var App = new Vue({
                 this.menuLogin = !this.menuLogin;
                 this.menuTeam = false;
                 this.menuGoals = false;
+            }
+        },
+        commentsToggle: function () {
+            if (this.commentsStatus) {
+                this.commentsStatus = !this.commentsStatus;
+            } else {
+                this.commentsStatus = true;
             }
         }
     }
