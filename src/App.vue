@@ -69,11 +69,12 @@
             </button>
           </div>
           <div class="board-main">
-            <draggable :list="section.tasks" :animation="200" group="tasks">
+            <draggable :list="section.tasks" :animation="200" :emptyInsertThreshold="100" group="tasks">
               <task
                   v-for="(task) in section.tasks"
                   :key="task.id"
                   :task="task"
+                  @delete-task="deleteTask"
                   class="cursor-move">
               </task>
             </draggable>
@@ -218,6 +219,9 @@ export default {
         this.menuTeam = false;
         this.menuGoals = false;
       }
+    },
+    deleteTask: function () {
+      this.$delete(this.task, task.id)
     }
   }
 }
@@ -388,7 +392,7 @@ button {
   justify-content: space-between;
   height: 40px;
   background-color: var(--main-green);
-  color: white;
+  color: var(--main-white);
   padding: 0 12px;
 }
 
