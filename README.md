@@ -1,24 +1,20 @@
-# cm_front
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Kanban board 
+## Веб-приложение необходимо для следующих задач
+1. Рапределение задач проекта
+2. Контроль сроков выполнения задач
+3. Возможность делится идеями
+## Структура приложения делится на три части
+1. Панель задач с блоками и таблицей
+2. Блок с пользователями в рамках проекта
+3. Страница администрирования
+## Канбан доска будет иметь следующие столбцы
+1. Задачи для выполнения
+2. Разработка
+3. Реализованные
+4. Обсуждение 
+5. Завершенные
+## Ориентировочно используемые технологии
+* Vue.js
+* html + css
+* GitHub API
+* json-server
