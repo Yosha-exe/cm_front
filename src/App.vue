@@ -74,6 +74,7 @@
                   v-for="(task) in section.tasks"
                   :key="task.id"
                   :task="task"
+                  @edit-task="editTask"
                   @delete-task="deleteTask"
                   class="cursor-move">
               </task>
@@ -220,8 +221,11 @@ export default {
         this.menuGoals = false;
       }
     },
+    editTask: function () {
+      // this.$delete(this.task, task.id)
+    },
     deleteTask: function () {
-      this.$delete(this.task, task.id)
+      // this.$delete(this.task, task.id)
     }
   }
 }
