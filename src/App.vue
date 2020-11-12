@@ -75,7 +75,7 @@
                   :key="task.id"
                   :task="task"
                   @edit-task="editTask"
-                  @delete-task="deleteTask"
+                  @deleteTask="deleteTask(section, task)"
                   class="cursor-move">
               </task>
             </draggable>
@@ -105,6 +105,7 @@ export default {
       commentsStatus: true,
       sections: [
         {
+          id: 1,
           title: "Tasks",
           tasks: [
             {
@@ -134,6 +135,7 @@ export default {
           ]
         },
         {
+          id: 2,
           title: "In progress",
           tasks: [
             {
@@ -151,6 +153,7 @@ export default {
           ]
         },
         {
+          id: 3,
           title: "Review",
           tasks: [
             {
@@ -174,6 +177,7 @@ export default {
           ]
         },
         {
+          id: 4,
           title: "Completed",
           tasks: [
             {
@@ -222,10 +226,10 @@ export default {
       }
     },
     editTask: function () {
-      // this.$delete(this.task, task.id)
     },
-    deleteTask: function () {
-      // this.$delete(this.task, task.id)
+    deleteTask: function (section, task) {
+      let index = section.tasks.indexOf(task)
+      section.tasks.splice(index, 1);
     }
   }
 }
