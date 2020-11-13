@@ -11,18 +11,16 @@
       </div>
       <div class="modal-body">
         <slot name="body">
-          <form :model="addTaskModal">
             <label class="modal-form">
-              <input class="modal-form__input" type="text" placeholder="Describe the task" />
-              <input class="modal-form__input" type="text" placeholder="Task deadline"/>
-              <input class="modal-form__input" type="text" placeholder="Task priority"/>
+              <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="addTaskTitle"/>
+              <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="addTaskDate"/>
+              <input class="modal-form__input" type="text" placeholder="Task priority" v-model="addTaskPriority"/>
             </label>
-          </form>
         </slot>
       </div>
       <div class="modal-footer">
         <slot name="footer">
-          <button v-if="toggleTaskStatus" type="button" class="modal-confirm__button" @click="$emit('addModalConfirm', addTaskModal)">
+          <button type="button" class="modal-confirm__button" @click="$emit('addModalConfirm', {addTaskTitle: addTaskTitle, addTaskDate: addTaskDate, addTaskPriority: addTaskPriority})">
             Add
           </button>
         </slot>
@@ -36,7 +34,9 @@ export default {
   name: "addModal",
   data() {
     return {
-      toggleTaskStatus: true
+      addTaskTitle: 'title',
+      addTaskDate: 'date',
+      addTaskPriority: 'priority'
     }
   }
 }

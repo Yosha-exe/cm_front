@@ -4,7 +4,7 @@
       <div class="modal-header">
         <slot name="header">
 
-          <button type=button class="modal-close__button" @click="$emit('editModalClose')">
+          <button type=button class="modal-close__button" data-dismiss="editTaskModal" @click="$emit('editModalClose')">
             X
           </button>
         </slot>
@@ -12,15 +12,15 @@
       <div class="modal-body">
         <slot name="body">
             <label class="modal-form">
-              <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="title"/>
-              <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="date"/>
-              <input class="modal-form__input" type="text" placeholder="Task priority" v-model="priority"/>
+              <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="editTaskTitle"/>
+              <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="editTaskDate"/>
+              <input class="modal-form__input" type="text" placeholder="Task priority" v-model="editTaskPriority"/>
             </label>
         </slot>
       </div>
       <div class="modal-footer">
         <slot name="footer">
-          <button v-if="toggleTaskStatus" type="button" class="modal-confirm__button" @click="$emit('editModalConfirm')">
+          <button type="button" class="modal-confirm__button" @click="$emit('editModalConfirm', {editTaskTitle: editTaskTitle, editTaskDate: editTaskDate, editTaskPriority: editTaskPriority })">
             Save
           </button>
         </slot>
@@ -32,14 +32,11 @@
 <script>
 export default {
   name: "editModal",
-  props: {
-    editTask: {
-      type: Object
-    }
-  },
   data() {
     return {
-      toggleTaskStatus: true
+      editTaskTitle: 'title',
+      editTaskDate: 'date',
+      editTaskPriority: 'priority'
     }
   }
 }

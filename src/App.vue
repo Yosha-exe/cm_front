@@ -40,7 +40,6 @@
     />
 
     <editModal
-
         v-show="isEditModalVisible"
         @editModalClose="editModalClose"
         @editModalConfirm="editModalConfirm"
@@ -90,7 +89,7 @@
                   v-for="(task) in section.tasks"
                   :key="task.id"
                   :task="task"
-                  @edit-task="editTask(task)"
+                  @editTask="editTask()"
                   @deleteTask="deleteTask(section, task)"
                   class="cursor-move">
               </task>
@@ -128,6 +127,9 @@ export default {
       isEditModalVisible: false,
       isAddModalVisible: false,
       isLoginFormVisible: false,
+      addTaskTitle: '',
+      addTaskDate: '',
+      addTaskPriority: '',
       sections: [
         {
           id: 1,
@@ -250,13 +252,7 @@ export default {
     loginFormEnter: function () {
       this.isLoginFormVisible = false;
     },
-    editTask: function (task) {
-      this.task = {
-        'id': task.id,
-        'title': task.title,
-        'date': task.date,
-        'priority': task.priority
-      }
+    editTask: function () {
       this.isEditModalVisible = true;
       this.toggleTaskStatus = true;
     },
@@ -274,16 +270,13 @@ export default {
     editModalClose() {
       this.isEditModalVisible = false;
     },
-    addModalConfirm() {
-      // this.section.tasks.push({title: this.title, date: this.date, priority: this.priority});
-      // this.finds.push({ value: 'def' });
+    addModalConfirm(data) {
+      console.log('addModalConfirm data', data);
       this.isAddModalVisible = false;
     },
-    editModalConfirm() {
+    editModalConfirm(data) {
+      console.log('editModalConfirm data', data);
       this.isEditModalVisible = false;
-    },
-    toggleTask() {
-
     }
   }
 }
@@ -392,7 +385,7 @@ button {
   background-color: var(--main-red);
 }
 
-.team-section, .goals-section, .login-section {
+.team-section, .goals-section {
   display: none;
   min-height: 50px;
   padding-top: 5px;
