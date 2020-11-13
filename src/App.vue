@@ -17,8 +17,7 @@
             Goals
           </button>
           <button type="button" class="menu__button login__button"
-                  v-on:click="loginToggle"
-                  v-bind:class="{menu__buttonActive: menuLogin}">
+                  v-on:click="loginToggle">
             Login
           </button>
           <!--                <button v-if="logoutStatus" type="button" class="menu__button logout__button">-->
@@ -27,6 +26,29 @@
         </nav>
       </div>
     </header>
+
+    <loginForm
+        v-show="isLoginFormVisible "
+        @loginFormClose="loginFormClose"
+        @loginFormEnter="loginFormEnter"
+    />
+
+    <addModal
+        v-show="isAddModalVisible "
+        @addModalClose="addModalClose"
+        @addModalConfirm="addModalConfirm"
+    />
+
+    <editModal
+
+        v-show="isEditModalVisible"
+        @editModalClose="editModalClose"
+        @editModalConfirm="editModalConfirm"
+    />
+
+    <!--        v-bind:title="task.title"-->
+    <!--        v-bind:date="task.date"-->
+    <!--        v-bind:priority="task.priority"-->
 
     <section class="team-section container" v-bind:class="{sectionActive: menuTeam}">
       <div class="team-section__main section-main">
@@ -46,12 +68,6 @@
       </div>
     </section>
 
-    <section class="login-section container" v-bind:class="{sectionActive: menuLogin}">
-      <div class="login-section__main section-main">
-
-      </div>
-    </section>
-
     <main>
       <div class="board container">
         <section
@@ -60,7 +76,7 @@
             class="board-section">
           <div class="board-header">
             {{ section.title }}
-            <button class="task-add__btn">
+            <button class="task-add__btn" @click="addModalShow">
                     <span class="plus">
                         <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
                             d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
@@ -74,7 +90,7 @@
                   v-for="(task) in section.tasks"
                   :key="task.id"
                   :task="task"
-                  @edit-task="editTask"
+                  @edit-task="editTask(task)"
                   @deleteTask="deleteTask(section, task)"
                   class="cursor-move">
               </task>
@@ -89,12 +105,18 @@
 <script>
 import draggable from "vuedraggable";
 import task from "./components/Task.vue";
+import editModal from './components/EditModal.vue';
+import addModal from './components/AddModal.vue';
+import loginForm from './components/LoginForm.vue';
 
 export default {
   name: "App",
   components: {
     task,
-    draggable
+    draggable,
+    editModal,
+    addModal,
+    loginForm
   },
   data() {
     return {
@@ -103,6 +125,9 @@ export default {
       menuLogin: false,
       logoutStatus: false,
       commentsStatus: true,
+      isEditModalVisible: false,
+      isAddModalVisible: false,
+      isLoginFormVisible: false,
       sections: [
         {
           id: 1,
@@ -217,19 +242,48 @@ export default {
       }
     },
     loginToggle: function () {
-      if (this.menuLogin) {
-        this.menuLogin = !this.menuLogin;
-      } else {
-        this.menuLogin = !this.menuLogin;
-        this.menuTeam = false;
-        this.menuGoals = false;
-      }
+      this.isLoginFormVisible = true;
     },
-    editTask: function () {
+    loginFormClose: function () {
+      this.isLoginFormVisible = false;
+    },
+    loginFormEnter: function () {
+      this.isLoginFormVisible = false;
+    },
+    editTask: function (task) {
+      this.task = {
+        'id': task.id,
+        'title': task.title,
+        'date': task.date,
+        'priority': task.priority
+      }
+      this.isEditModalVisible = true;
+      this.toggleTaskStatus = true;
     },
     deleteTask: function (section, task) {
-      let index = section.tasks.indexOf(task)
+      let index = section.tasks.indexOf(task);
       section.tasks.splice(index, 1);
+    },
+    addModalShow() {
+      this.isAddModalVisible = true;
+      this.toggleTaskStatus = false;
+    },
+    addModalClose() {
+      this.isAddModalVisible = false;
+    },
+    editModalClose() {
+      this.isEditModalVisible = false;
+    },
+    addModalConfirm() {
+      // this.section.tasks.push({title: this.title, date: this.date, priority: this.priority});
+      // this.finds.push({ value: 'def' });
+      this.isAddModalVisible = false;
+    },
+    editModalConfirm() {
+      this.isEditModalVisible = false;
+    },
+    toggleTask() {
+
     }
   }
 }

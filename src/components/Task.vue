@@ -1,10 +1,9 @@
 <template>
   <div class="task">
     <div class="task-header">
-       {{ task.title }}
-      {{index}}
+      {{ task.title }}
       <div class="task-editors">
-        <button class="task-edit__button" @click="$emit('edit-task')">
+        <button type="button" class="task-edit__button" @click="$emit('edit-task')">
           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="feather feather-edit">
@@ -12,7 +11,7 @@
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
           </svg>
         </button>
-        <button class="task-delete__button" @click="$emit('deleteTask')">
+        <button type="button" class="task-delete__button" @click="$emit('deleteTask')">
           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="feather feather-trash-2">
@@ -48,9 +47,6 @@ export default {
     task: {
       type: Object,
       default: () => ({})
-    },
-    index: {
-      type: Object
     }
   }
 }
