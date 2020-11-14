@@ -12,15 +12,15 @@
       <div class="modal-body">
         <slot name="body">
             <label class="modal-form">
-              <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="editTaskTitle"/>
-              <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="editTaskDate"/>
-              <input class="modal-form__input" type="text" placeholder="Task priority" v-model="editTaskPriority"/>
+              <input class="modal-form__input" type="text" placeholder="Describe the task"/>
+              <input class="modal-form__input" type="text" placeholder="Task deadline"/>
+              <input class="modal-form__input" type="text" placeholder="Task priority"/>
             </label>
         </slot>
       </div>
       <div class="modal-footer">
         <slot name="footer">
-          <button type="button" class="modal-confirm__button" @click="$emit('editModalConfirm', {editTaskTitle: editTaskTitle, editTaskDate: editTaskDate, editTaskPriority: editTaskPriority })">
+          <button type="button" class="modal-confirm__button" @click="$emit('editModalConfirm')">
             Save
           </button>
         </slot>
@@ -32,11 +32,16 @@
 <script>
 export default {
   name: "editModal",
+  props: {
+    task: {
+      type: Object
+    }
+  },
   data() {
     return {
-      editTaskTitle: 'title',
-      editTaskDate: 'date',
-      editTaskPriority: 'priority'
+      // editTaskTitle: this.task.title,
+      // editTaskDate: this.task.date,
+      // editTaskPriority: this.task.priority
     }
   }
 }

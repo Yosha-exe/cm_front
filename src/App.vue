@@ -75,7 +75,7 @@
             class="board-section">
           <div class="board-header">
             {{ section.title }}
-            <button class="task-add__btn" @click="addModalShow">
+            <button class="task-add__btn" @click="addModalShow(section)">
                     <span class="plus">
                         <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path
                             d="m83 0h34.1v200h-34.1z" transform="matrix(0 1 -1 0 200 0)"/><path
@@ -89,7 +89,7 @@
                   v-for="(task) in section.tasks"
                   :key="task.id"
                   :task="task"
-                  @editTask="editTask()"
+                  @editTask="editTask(section, task)"
                   @deleteTask="deleteTask(section, task)"
                   class="cursor-move">
               </task>
@@ -130,6 +130,7 @@ export default {
       addTaskTitle: '',
       addTaskDate: '',
       addTaskPriority: '',
+      lastId: 11,
       sections: [
         {
           id: 1,
@@ -252,7 +253,14 @@ export default {
     loginFormEnter: function () {
       this.isLoginFormVisible = false;
     },
-    editTask: function () {
+    editTask: function (section, task) {
+      console.log(section, task);
+      // this.task = {
+      //   'id': section.task.id,
+      //   'title': task.title,
+      //   'date': task.date,
+      //   'priority': task.priority
+      // };
       this.isEditModalVisible = true;
       this.toggleTaskStatus = true;
     },
@@ -260,7 +268,8 @@ export default {
       let index = section.tasks.indexOf(task);
       section.tasks.splice(index, 1);
     },
-    addModalShow() {
+    addModalShow(section) {
+      this.addSection = section;
       this.isAddModalVisible = true;
       this.toggleTaskStatus = false;
     },
@@ -272,6 +281,13 @@ export default {
     },
     addModalConfirm(data) {
       console.log('addModalConfirm data', data);
+      let obj = {
+        id: ++this.lastId
+      };
+      obj.title = data.addTaskTitle;
+      obj.date = data.addTaskDate;
+      obj.priority = data.addTaskPriority;
+      this.addSection.tasks.push(obj);
       this.isAddModalVisible = false;
     },
     editModalConfirm(data) {

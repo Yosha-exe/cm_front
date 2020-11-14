@@ -20,7 +20,7 @@
       </div>
       <div class="modal-footer">
         <slot name="footer">
-          <button type="button" class="modal-confirm__button" @click="$emit('addModalConfirm', {addTaskTitle: addTaskTitle, addTaskDate: addTaskDate, addTaskPriority: addTaskPriority})">
+          <button type="button" class="modal-confirm__button" @click="$emit('addModalConfirm', {addTaskTitle, addTaskDate, addTaskPriority})">
             Add
           </button>
         </slot>
@@ -34,9 +34,9 @@ export default {
   name: "addModal",
   data() {
     return {
-      addTaskTitle: 'title',
-      addTaskDate: 'date',
-      addTaskPriority: 'priority'
+      addTaskTitle: '',
+      addTaskDate: '',
+      addTaskPriority: ''
     }
   }
 }
