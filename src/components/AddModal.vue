@@ -11,16 +11,18 @@
       </div>
       <div class="modal-body">
         <slot name="body">
-            <label class="modal-form">
-              <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="addTaskTitle"/>
-              <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="addTaskDate"/>
-              <input class="modal-form__input" type="text" placeholder="Task priority" v-model="addTaskPriority"/>
-            </label>
+          <label class="modal-form">
+            <input class="modal-form__input" type="text" placeholder="Describe the task" v-model="addTaskTitle"/>
+            <input class="modal-form__input" type="text" placeholder="Task deadline" v-model="addTaskDate"/>
+            <input class="modal-form__input" type="text" placeholder="Task priority" v-model="addTaskPriority"/>
+          </label>
         </slot>
       </div>
       <div class="modal-footer">
         <slot name="footer">
-          <button type="button" class="modal-confirm__button" @click="$emit('addModalConfirm', {addTaskTitle, addTaskDate, addTaskPriority})">
+          <button type="button" class="modal-confirm__button"
+                  @click="$emit('addModalConfirm',
+                  {addTaskTitle: addTaskTitle, addTaskDate: addTaskDate, addTaskPriority: addTaskPriority})">
             Add
           </button>
         </slot>

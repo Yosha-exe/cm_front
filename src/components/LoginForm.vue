@@ -12,7 +12,6 @@
       <div class="modal-body">
         <slot name="body">
           <label class="modal-form">
-            <input class="modal-form__input" type="text" placeholder="Login" />
             <input class="modal-form__input" type="email" placeholder="Email"/>
             <input class="modal-form__input" type="password" placeholder="Password"/>
           </label>
