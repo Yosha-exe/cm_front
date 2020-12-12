@@ -12,8 +12,7 @@
 2. In progress
 3. Review
 4. Completed
-## Ориентировочно используемые технологии
+## Используемые технологии
 * Vue.js
 * html + css
-* GitHub API
 * json-server
