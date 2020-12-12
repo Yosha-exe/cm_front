@@ -2,8 +2,8 @@
   <div id="app">
     <header>
       <div class="header container">
-        <div v-for="value in project.data" :key="value.title" class="header-logo">
-          {{ value.title}}
+        <div v-for="(element, index) in title" :key="index" class="header-logo">
+          {{ element.value }}
         </div>
         <nav class="header-menu">
           <button type="button" class="menu__button team__button"
@@ -40,9 +40,6 @@
     />
 
     <editModal
-        :editTaskTitle="this.editTaskTitle"
-        :editTaskDate="this.editTaskDate"
-        :editTaskPriority="this.editTaskPriority"
         v-show="isEditModalVisible"
         @editModalClose="editModalClose"
         @editModalConfirm="editModalConfirm"
@@ -50,7 +47,7 @@
 
     <section class="team-section container" v-bind:class="{sectionActive: menuTeam}">
       <div class="team-section__main section-main">
-        <div class="member__block" v-for="(employee, index) in team.data" :key="index">
+        <div class="member__block" v-for="(employee, index) in team" :key="index">
           <img :src="employee.avatar" alt="avatar" class="member-avatar">
           <div class="member-name">{{ employee.name }} | {{ employee.department }}</div>
         </div>
@@ -58,15 +55,15 @@
     </section>
 
     <section class="goals-section container" v-bind:class="{sectionActive: menuGoals}">
-      <div v-for="value in project.data" :key="value.goals" class="goals-section__main section-main">
-        {{ value.goals }}
+      <div v-for="(element, index) in goals" :key="index" class="goals-section__main section-main">
+        {{ element.value }}
       </div>
     </section>
 
     <main>
       <div class="board container">
         <section
-            v-for="section in sections.data"
+            v-for="section in sections"
             :key="section.title"
             class="board-section">
           <div class="board-header">
@@ -132,19 +129,27 @@ export default {
       lastId: 11,
       team: [],
       sections: [],
-      project: []
+      title: [],
+      goals: []
     }
   },
   mounted() {
     axios
         .get('http://localhost:3000/team')
-        .then(response => this.team = response)
+        .then(response => this.team = response.data)
+        .catch(error => console.log(error));
     axios
         .get('http://localhost:3000/sections')
-        .then(response => this.sections = response)
+        .then(response => this.sections = response.data)
+        .catch(error => console.log(error));
     axios
-        .get('http://localhost:3000/project')
-        .then(response => this.project = response)
+        .get('http://localhost:3000/title')
+        .then(response => this.title = response.data)
+        .catch(error => console.log(error));
+    axios
+        .get('http://localhost:3000/goals')
+        .then(response => this.goals = response.data)
+        .catch(error => console.log(error));
   },
   methods: {
     teamToggle: function () {
@@ -174,12 +179,7 @@ export default {
     loginFormEnter: function () {
       this.isLoginFormVisible = false;
     },
-    editTask: function (section, task) {
-      console.log(section.title, task.title);
-      this.editTaskTitle = task.title;
-      this.editTaskDate = task.date;
-      this.editTaskPriority = task.priority;
-      console.log(this.editTaskTitle, this.editTaskDate, this.editTaskPriority);
+    editTask: function () {
       this.isEditModalVisible = true;
       this.toggleTaskStatus = true;
     },
@@ -202,10 +202,8 @@ export default {
       this.addSection.tasks.push(obj);
       this.isAddModalVisible = false;
     },
-    editModalConfirm(data) {
-      console.log('editModalConfirm data', data);
-      this.section.task.title = data.editTaskTitle;
-      this.isEditModalVisible = false;
+    editModalConfirm: function () {
+
     },
     addModalClose() {
       this.isAddModalVisible = false;

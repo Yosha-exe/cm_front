@@ -22,7 +22,7 @@
       <div class="modal-footer">
         <slot name="footer">
           <button type="button" class="modal-confirm__button"
-                  @click="$emit('editModalConfirm', {editTaskTitle, editTaskDate, editTaskPriority})">
+                  @click="$emit('editModalConfirm', )">
             Save
           </button>
         </slot>
