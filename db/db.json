@@ -1,0 +1,143 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "name": "Steven Spencer",
+      "avatar": "https://www.w3schools.com/howto/img_avatar.png",
+      "phone": "(952) 419-1001 x7698",
+      "email": "Macy.Jones32@gmail.com",
+      "department": "Backend"
+    },
+    {
+      "id": 2,
+      "name": "Dora Waelchi",
+      "avatar": "https://www.w3schools.com/w3images/avatar6.png",
+      "phone": "425.825.9827 x9297",
+      "email": "Mara.Keebler@gmail.com",
+      "department": "Designer"
+    },
+    {
+      "id": 3,
+      "name": "Henry Gislason",
+      "avatar": "https://www.w3schools.com/w3images/avatar5.png",
+      "phone": "236-225-9228 x8919",
+      "email": "Emerson.OReilly18@gmail.com",
+      "department": "Frontend"
+    },
+    {
+      "id": 5,
+      "name": "Earl Swaniawski",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png",
+      "phone": "917-589-4664 x836",
+      "email": "Kaylee33@hotmail.com",
+      "department": "Tester"
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "title": "Tasks",
+      "tasks": [
+        {
+          "id": 1,
+          "title": "Task title 1",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 2,
+          "title": "Task title 2",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 3,
+          "title": "Task title 3",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 4,
+          "title": "Task title 4",
+          "date": "Nov 24",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "In progress",
+      "tasks": [
+        {
+          "id": 5,
+          "title": "Task title 5",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 6,
+          "title": "Task title 6",
+          "date": "Nov 24",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Review",
+      "tasks": [
+        {
+          "id": 7,
+          "title": "Task title 7",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 8,
+          "title": "Task title 8",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 9,
+          "title": "Task title 9",
+          "members": [
+            1,
+            3,
+            2
+          ],
+          "date": "Nov 24",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Completed",
+      "tasks": [
+        {
+          "id": 10,
+          "title": "Task title 10",
+          "date": "Nov 24",
+          "priority": "High"
+        },
+        {
+          "id": 11,
+          "title": "Task title 11",
+          "date": "Nov 24",
+          "priority": "High"
+        }
+      ]
+    }
+  ],
+  "project": [
+    {
+      "id": 1,
+      "title": "Web project"
+    },
+    {
+      "id": 2,
+      "goals": "We need to create new admin panel for our website before the end of the year. Sections: statistics of visits, adding products, sales statistics, communication with a specific user"
+    }
+  ]
+}

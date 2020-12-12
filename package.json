@@ -4,30 +4,30 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "dbstart": "json-server ./db/team.json",
+    "dbstart": "json-server db/db.json",
     "generate": "json-server ./db/generate.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.0",
-    "core-js": "^3.8.0",
-    "faker": "^5.1.0",
-    "json-server": "^0.16.3",
-    "lodash": "^4.17.20",
-    "vue": "^2.6.11",
-    "vue-js-modal": "^2.0.0-rc.6",
-    "vuedraggable": "^2.24.3"
+    "axios": "0.21.0",
+    "core-js": "3.8.0",
+    "faker": "5.1.0",
+    "json-server": "0.16.3",
+    "lodash": "4.17.20",
+    "vue": "2.6.12",
+    "vue-js-modal": "2.0.0-rc.6",
+    "vuedraggable": "2.24.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-plugin-eslint": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
-    "babel-eslint": "^10.1.0",
-    "concurrently": "^5.3.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "4.5.9",
+    "@vue/cli-plugin-eslint": "4.5.9",
+    "@vue/cli-service": "4.5.9",
+    "babel-eslint": "10.1.0",
+    "concurrently": "5.3.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-vue": "6.2.2",
+    "vue-template-compiler": "2.6.12"
   },
   "eslintConfig": {
     "root": true,

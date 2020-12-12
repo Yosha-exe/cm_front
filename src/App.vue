@@ -2,8 +2,8 @@
   <div id="app">
     <header>
       <div class="header container">
-        <div class="header-logo">
-          Project title
+        <div v-for="value in project.data" :key="value.title" class="header-logo">
+          {{ value.title}}
         </div>
         <nav class="header-menu">
           <button type="button" class="menu__button team__button"
@@ -40,37 +40,33 @@
     />
 
     <editModal
+        :editTaskTitle="this.editTaskTitle"
+        :editTaskDate="this.editTaskDate"
+        :editTaskPriority="this.editTaskPriority"
         v-show="isEditModalVisible"
         @editModalClose="editModalClose"
         @editModalConfirm="editModalConfirm"
     />
 
-    <!--        v-bind:title="task.title"-->
-    <!--        v-bind:date="task.date"-->
-    <!--        v-bind:priority="task.priority"-->
-
     <section class="team-section container" v-bind:class="{sectionActive: menuTeam}">
       <div class="team-section__main section-main">
-        <div class="member__block">
-          <img src="https://via.placeholder.com/30.png?text=Img" alt="avatar" class="member-avatar">
-          <div class="member-name">Employee name</div>
+        <div class="member__block" v-for="(employee, index) in team.data" :key="index">
+          <img :src="employee.avatar" alt="avatar" class="member-avatar">
+          <div class="member-name">{{ employee.name }} | {{ employee.department }}</div>
         </div>
-
       </div>
     </section>
 
     <section class="goals-section container" v-bind:class="{sectionActive: menuGoals}">
-      <div class="goals-section__main section-main">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi atque ipsa, molestiae officia quae
-        temporibus tenetur! Atque consequuntur expedita fugit inventore iusto magnam molestias neque quibusdam,
-        repudiandae, tempora temporibus!
+      <div v-for="value in project.data" :key="value.goals" class="goals-section__main section-main">
+        {{ value.goals }}
       </div>
     </section>
 
     <main>
       <div class="board container">
         <section
-            v-for="section in sections"
+            v-for="section in sections.data"
             :key="section.title"
             class="board-section">
           <div class="board-header">
@@ -103,10 +99,13 @@
 
 <script>
 import draggable from "vuedraggable";
+// import vmodal from 'vue-js-modal';
 import task from "./components/Task.vue";
 import editModal from './components/EditModal.vue';
 import addModal from './components/AddModal.vue';
 import loginForm from './components/LoginForm.vue';
+import axios from 'axios';
+
 
 export default {
   name: "App",
@@ -131,99 +130,21 @@ export default {
       addTaskDate: '',
       addTaskPriority: '',
       lastId: 11,
-      sections: [
-        {
-          id: 1,
-          title: "Tasks",
-          tasks: [
-            {
-              id: 1,
-              title: "Task title 1",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 2,
-              title: "Task title 2",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 3,
-              title: "Task title 3",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 4,
-              title: "Task title 4",
-              date: "Nov 24",
-              priority: "High"
-            }
-          ]
-        },
-        {
-          id: 2,
-          title: "In progress",
-          tasks: [
-            {
-              id: 5,
-              title: "Task title 5",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 6,
-              title: "Task title 6",
-              date: "Nov 24",
-              priority: "High"
-            }
-          ]
-        },
-        {
-          id: 3,
-          title: "Review",
-          tasks: [
-            {
-              id: 7,
-              title: "Task title 7",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 8,
-              title: "Task title 8",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 9,
-              title: "Task title 9",
-              date: "Nov 24",
-              priority: "High"
-            }
-          ]
-        },
-        {
-          id: 4,
-          title: "Completed",
-          tasks: [
-            {
-              id: 10,
-              title: "Task title 10",
-              date: "Nov 24",
-              priority: "High"
-            },
-            {
-              id: 11,
-              title: "Task title 11",
-              date: "Nov 24",
-              priority: "High"
-            }
-          ]
-        }
-      ]
+      team: [],
+      sections: [],
+      project: []
     }
+  },
+  mounted() {
+    axios
+        .get('http://localhost:3000/team')
+        .then(response => this.team = response)
+    axios
+        .get('http://localhost:3000/sections')
+        .then(response => this.sections = response)
+    axios
+        .get('http://localhost:3000/project')
+        .then(response => this.project = response)
   },
   methods: {
     teamToggle: function () {
@@ -254,13 +175,11 @@ export default {
       this.isLoginFormVisible = false;
     },
     editTask: function (section, task) {
-      console.log(section, task);
-      // this.task = {
-      //   'id': section.task.id,
-      //   'title': task.title,
-      //   'date': task.date,
-      //   'priority': task.priority
-      // };
+      console.log(section.title, task.title);
+      this.editTaskTitle = task.title;
+      this.editTaskDate = task.date;
+      this.editTaskPriority = task.priority;
+      console.log(this.editTaskTitle, this.editTaskDate, this.editTaskPriority);
       this.isEditModalVisible = true;
       this.toggleTaskStatus = true;
     },
@@ -273,25 +192,25 @@ export default {
       this.isAddModalVisible = true;
       this.toggleTaskStatus = false;
     },
-    addModalClose() {
-      this.isAddModalVisible = false;
-    },
-    editModalClose() {
-      this.isEditModalVisible = false;
-    },
     addModalConfirm(data) {
-      console.log('addModalConfirm data', data);
       let obj = {
-        id: ++this.lastId
+        id: ++this.lastId,
+        title: data.addTaskTitle,
+        date: data.addTaskDate,
+        priority: data.addTaskPriority
       };
-      obj.title = data.addTaskTitle;
-      obj.date = data.addTaskDate;
-      obj.priority = data.addTaskPriority;
       this.addSection.tasks.push(obj);
       this.isAddModalVisible = false;
     },
     editModalConfirm(data) {
       console.log('editModalConfirm data', data);
+      this.section.task.title = data.editTaskTitle;
+      this.isEditModalVisible = false;
+    },
+    addModalClose() {
+      this.isAddModalVisible = false;
+    },
+    editModalClose() {
       this.isEditModalVisible = false;
     }
   }
